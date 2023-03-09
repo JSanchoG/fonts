@@ -1,0 +1,260 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.ti-hub {
+  cursor: pointer;
+}
+.ti-hub-links {
+  cursor: pointer !important;
+}
+.no-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.font-list a {
+  font-size: 13px;
+  cursor: pointer;
+  font-family: "Sequel-45", serif !important;
+}
+.font-list-first {
+  font-size: 22px !important;
+  margin-right: 5px;
+}
+body {
+  padding: 0;
+  color: #1d1f20;
+  background: #f3f3f3;
+  font-family: "Sequel-45", serif;
+  transition: color 0.5s ease-out, background 0.5s ease-out;
+  overflow: hidden;
+}
+body.dark-mode {
+  color: #f3f3f3;
+  background: #1d1f20;
+  -webkit-font-smoothing: antialiased;
+}
+body.dark-mode .type-tester > *:focus,
+body.dark-mode .type-tester > *:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+body.dark-mode .controls .show-lines:hover .lines-indicator,
+body.dark-mode .controls .show-lines.-active .lines-indicator {
+  background: #f3f3f3;
+}
+.section-title {
+  top: 0;
+  left: 0;
+  margin: 0;
+  opacity: 0.25;
+  font-size: 14px;
+  font-weight: 400;
+  padding-top: 14px;
+  position: absolute;
+}
+header {
+  z-index: 1;
+  margin: 30px 60px;
+  position: relative;
+}
+header .header-top::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+header h1 {
+  float: left;
+  line-height: 1;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 30px 0 0;
+}
+header h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+header h1 a:hover {
+  text-decoration: underline;
+}
+header p.instructions {
+  margin: 0;
+  float: right;
+  line-height: 3;
+  font-size: 10px;
+  font-style: italic;
+}
+.controls {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid;
+}
+.controls::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.controls > div {
+  float: right;
+}
+.controls > div p {
+  display: inline-block;
+}
+.controls .section-title {
+  top: auto;
+  float: left;
+  padding-top: 6px;
+  position: relative;
+}
+.controls p {
+  margin: 0;
+  line-height: 2;
+  font-size: 14px;
+}
+.controls p.styles {
+  float: left;
+}
+.controls p.styles .bold {
+  font-weight: 700;
+}
+.controls p.styles .italic {
+  font-style: italic;
+}
+.controls p.styles span {
+  cursor: pointer;
+}
+.controls p.styles span:not(.-active) {
+  opacity: 0.5;
+}
+.controls p.styles span:not(.-active):hover {
+  opacity: 1;
+}
+.controls p.color-mode {
+  float: left;
+  margin-left: 30px;
+}
+.controls p.color-mode span {
+  cursor: pointer;
+}
+.controls p.color-mode span:not(.-active) {
+  opacity: 0.5;
+}
+.controls p.color-mode span:not(.-active):hover {
+  opacity: 1;
+}
+.controls .show-lines {
+  cursor: pointer;
+  margin-left: 30px;
+}
+.controls .show-lines .lines-indicator {
+  width: 8px;
+  height: 8px;
+  border: 1px solid;
+  position: relative;
+  border-radius: 50%;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.2s ease-out;
+}
+.controls .show-lines:hover .lines-indicator,
+.controls .show-lines.-active .lines-indicator {
+  background: #1d1f20;
+}
+.carousel {
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+.carousel:focus {
+  outline: none;
+}
+.flickity-slider {
+  min-height: 400px;
+}
+.carousel-cell {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  background-size: cover;
+  transition: filter 0.5s ease-out, opacity 0.5s ease-out;
+}
+.carousel-cell .-inner {
+  opacity: 1;
+  margin: auto;
+  transition: opacity 1s ease-out 0.5s;
+}
+.carousel-cell p {
+  margin: 0;
+  font-size: 25vw;
+  line-height: 0.75;
+  position: relative;
+  transform-origin: center center;
+  transition: transform 0.5s ease-out;
+}
+@media screen and (min-width: 1200px) {
+  .carousel-cell p {
+    font-size: 300px;
+  }
+}
+.carousel-cell p::before {
+  top: 0;
+  opacity: 0;
+  left: -5vw;
+  right: -5vw;
+  z-index: -1;
+  content: "";
+  bottom: 0.35vw;
+  position: absolute;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  transition: opacity 0.5s ease-out;
+}
+.carousel-cell p::after {
+  top: 50%;
+  left: -5vw;
+  opacity: 0;
+  right: -5vw;
+  content: "";
+  z-index: -1;
+  height: 4px;
+  position: absolute;
+  border-top: 4px dashed;
+  transform: translateY(-4px);
+  transition: opacity 0.5s ease-out;
+}
+.carousel-cell p.lines-shown::before,
+.carousel-cell p.lines-shown::after {
+  opacity: 0.25;
+}
+.carousel-cell:not(.is-selected) {
+  opacity: 0.25;
+  filter: blur(5px);
+}
+.carousel-cell:not(.is-selected) p {
+  transform: scale(0.5);
+}
+.type-tester {
+  padding: 30px 0;
+  margin: 30px 60px;
+  position: relative;
+  border-top: 1px solid;
+}
+.type-tester > *:focus,
+.type-tester > *:hover {
+  outline: none;
+  background: rgba(0, 0, 0, 0.05);
+}
+.type-tester h2 {
+  margin-top: 0;
+  font-size: 34px;
+  max-width: 600px;
+}
+.type-tester p {
+  font-size: 18px;
+  max-width: 600px;
+  line-height: 1.25;
+}
